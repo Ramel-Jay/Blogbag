@@ -5,6 +5,14 @@ import { render } from "ejs";
 const app = express();
 const port = 3000;
 
+// function getPost(req, res, next){
+//     title = req.body['title'];
+//     experience = req.body['experience'];
+//     next();
+// }
+
+// app.use(getPost);
+
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -13,11 +21,9 @@ app.get("/", (req, res) => {
 })
 
 app.post("/submit", (req, res) => {
-    title = req.body['title'];
-    experience = req.body['experience'];
     res.render("blog.ejs", {
-        blogTitle: title,
-        blogDescription: experience
+        blogTitle: req.body['blogTitle'],
+        blogDescription: req.body['blogDescription']
     })
 })
 
