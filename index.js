@@ -1,16 +1,24 @@
 import express from "express";
 import bodyParser from "body-parser";
 import { render } from "ejs";
-import { dirname } from "path";
-import { fileURLToPath } from "url";
 
 const app = express();
 const port = 3000;
 
-app.use(express.static("public"))
+app.use(express.static("public"));
+app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use("/", (req, res) => {
+app.get("/", (req, res) => {
     res.render("index.ejs");
+})
+
+app.post("/submit", (req, res) => {
+    title = req.body['title'];
+    experience = req.body['experience'];
+    res.render("blog.ejs", {
+        blogTitle: title,
+        blogDescription: experience
+    })
 })
 
 app.listen(port, () => {

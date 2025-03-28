@@ -1,0 +1,8 @@
+<%- include("partials/header.ejs") %>
+    <% if( locals.blogTitle && locals.blogDescription ){ %>
+        <h1><% blogTitle %></h1>
+        <h1><% blogDescription %></h1>
+    <% } else { %>
+        <h1>This thing ins't working</h1>
+    <% } %>
+<%- include("partials/footer.ejs") %>

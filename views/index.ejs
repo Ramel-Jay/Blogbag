@@ -1,15 +1,29 @@
 <%- include("partials/header.ejs") %>
     <div class="jumbotron-container p-5 bg-primary-subtle">
-        <div class="row">
-            <div class="col-7 text-center ">
-                <h1>Ramel Jay Cuna</h1>
-                <p>Aspiring a Website Developer</p>
+        <div class="d-flex justify-content-around align-items-center">
+            <div class="">
+                <h1>How was your Travel?</h1>
+                <br>Share your experience in your travel journey. </br>This is a site where you can share your travel experience to the other Travelers</p>
                 <button class="btn btn-success" type="submit">Contact me</button>
             </div>
-            <div class="col-5 text-center">
-                <img src="images/logo-icon.png" alt="">
+            <div class="text-center">
+                <img class="img-fluid image-logo" src="images/logo-icon.png" alt="">
             </div>
         </div>
     </div>
 
+    <div class="form-container">
+        <form class="w-50" action="/submit" method="POST">
+            <div class="mb-3">
+              <label for="title" class="form-label">Blog Title</label>
+              <input type="text" class="form-control" id="title" name="title">
+            </div>
+            <div class="mb-3">
+                <label for="experience">Your Experience</label>
+                <textarea class="form-control" id="experience" rows="3" name="experience"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>    
+    </div>
+    
 <%- include("partials/footer.ejs") %>
